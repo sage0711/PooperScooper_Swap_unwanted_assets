@@ -6,12 +6,10 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      crypto: "crypto-browserify",
       buffer: "buffer",
+      stream: "stream-browserify",
+      crypto: "crypto-browserify",
     },
-  },
-  define: {
-    Buffer: ["buffer", "Buffer"],
   },
   optimizeDeps: {
     esbuildOptions: {
@@ -20,12 +18,10 @@ export default defineConfig({
       },
       plugins: [
         NodeGlobalsPolyfillPlugin({
+          process: true,
           buffer: true,
         }),
       ],
     },
-  },
-  build: {
-    outDir: "dist",
   },
 });
