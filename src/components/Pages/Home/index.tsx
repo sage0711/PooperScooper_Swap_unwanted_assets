@@ -1,7 +1,6 @@
 import { Box, Stack, Typography } from "@mui/joy";
 import Animate from "../../Animations";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import walletConnectImg from "../../../assets/imgs/wallet.png";
 
 const Home: React.FC = () => {
   const { AnimationBox, AnimationText } = Animate;
@@ -64,12 +63,7 @@ const Home: React.FC = () => {
         </Box>
 
         <AnimationBox option={4}>
-          <WalletMultiButton
-            style={{
-              backgroundImage: walletConnectImg,
-              backgroundSize: "cover",
-            }}
-          />
+          <WalletMultiButton />
         </AnimationBox>
       </Box>
       <Stack
