@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+}
+
+@font-face {
+  font-family: "comics";
+  src:
+    local("comics"),
+    url(./assets/fonts/comics.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Poppin";
+  src:
+    local("Poppin"),
+    url(./assets/fonts/Poppin.woff) format("woff");
+}
