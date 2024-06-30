@@ -49,7 +49,7 @@ const About: React.FC = () => {
               textAlign: "center",
             }}
           >
-            POOPER SCOOPER
+            Swivul
           </Typography>
           <Box
             sx={{

@@ -636,7 +636,7 @@ const AssetList: React.FC = () => {
                   Scoop Value (Sol)
                 </th>
                 <th className="whitespace-nowrap p-4 font-medium text-gray-900 text-lg text-right">
-                  Fee ($USDC)
+                  Fee ( {selectedOption === 1 ? "$USDT" : "$USDC"})
                 </th>
                 <th className="whitespace-nowrap p-4 font-medium text-gray-900 text-lg text-right flex gap-4 justify-end">
                   Token List

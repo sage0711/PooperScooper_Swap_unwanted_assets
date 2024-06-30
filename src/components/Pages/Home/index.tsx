@@ -45,20 +45,7 @@ const Home: React.FC = () => {
               backgroundClip: "text",
             }}
           >
-            Pooper
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: "28px",
-              fontFamily: "comics",
-              background:
-                "linear-gradient(222.7deg, #CE771D 16.08%, #F72800 69.08%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            Scooper
+            Swivul
           </Typography>
         </Box>
 
@@ -87,7 +74,7 @@ const Home: React.FC = () => {
           />
 
           <AnimationText
-            text="POOPER SCOOPER"
+            text="Swivul"
             delay={1}
             style={{
               fontSize: { xs: "50px", md: "120px" },

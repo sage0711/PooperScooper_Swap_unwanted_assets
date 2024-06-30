@@ -38,20 +38,7 @@ const Footer: React.FC = () => {
               backgroundClip: "text",
             }}
           >
-            Pooper
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: { xs: "30px", sm: "50px", md: "70px" },
-              fontFamily: "comics",
-              background:
-                "linear-gradient(222.7deg, #CE771D 16.08%, #F72800 69.08%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            Scooper
+            Swivul
           </Typography>
         </Box>
       </AnimationBox>
