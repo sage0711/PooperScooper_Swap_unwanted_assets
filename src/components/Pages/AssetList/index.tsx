@@ -298,33 +298,35 @@ const AssetList: React.FC = () => {
   /* End application startup */
 
   /* Scoop button callback, clean all the tokens! */
-  const scoop = () => {
+  const scoop = async () => {
     // Run only once
     if (state == ApplicationStates.LOADED_QUOTES) {
       setState(ApplicationStates.SCOOPING);
-      sweepTokens(
-        wallet,
-        connection,
-        Object.values(assetList),
-        (id: string, state: string) => {
-          updateAssetList((aL) => {
-            assetList[id].transactionState = state;
-            return aL;
-          });
-        },
-        (id, txid) => {},
-        (id, error) => {}
-      )
-        .then(() => {
-          setState(ApplicationStates.SCOOPED);
-          track("Scooped");
-        })
-        .catch((err) => {
-          const notify = () => toast.error("User rejected transaction!");
-          notify();
-          console.log("Error signing for scoop!" + err);
-          setState(ApplicationStates.LOADED_QUOTES);
-        });
+      console.log("assetList", assetList);
+
+      try {
+        await sweepTokens(
+          wallet,
+          connection,
+          Object.values(assetList),
+          (id, state) => {
+            updateAssetList((aL) => {
+              assetList[id].transactionState = state;
+              return aL;
+            });
+          },
+          (id, txid) => {},
+          (id, error) => {}
+        );
+
+        setState(ApplicationStates.SCOOPED);
+        track("Scooped");
+      } catch (err) {
+        const notify = () => toast.error("User rejected transaction!");
+        notify();
+        console.log("Error signing for scoop!" + err);
+        setState(ApplicationStates.LOADED_QUOTES);
+      }
     }
   };
 
@@ -387,6 +389,8 @@ const AssetList: React.FC = () => {
 
     return ascending === true ? comparison : -comparison; // Adjust comparison based on sortOrder
   });
+
+  console.log("sortedAssets", sortedAssets);
 
   const SummaryModal = () => {
     return (
@@ -630,10 +634,10 @@ const AssetList: React.FC = () => {
                   Balance
                 </th>
                 <th className="whitespace-nowrap p-4 font-medium text-gray-900 text-lg text-right">
-                  Scoop Value {selectedOption === 1 ? "$USDT" : "$USDC"}
+                  Value {selectedOption === 1 ? "$USDT" : "$USDC"}
                 </th>
                 <th className="whitespace-nowrap p-4 font-medium text-gray-900 text-lg text-right">
-                  Scoop Value (Sol)
+                  Value (Sol)
                 </th>
                 <th className="whitespace-nowrap p-4 font-medium text-gray-900 text-lg text-right">
                   Fee ( {selectedOption === 1 ? "$USDT" : "$USDC"})
@@ -854,7 +858,7 @@ const AssetList: React.FC = () => {
                   {(totalPossibleScoop / 10 ** 6).toLocaleString()}
                 </p>
 
-                <p className="text-sm text-gray-500">Possible Scoop</p>
+                <p className="text-sm text-gray-500">Possible Swap</p>
               </div>
             </article>
             <article className="flex items-center gap-4 rounded-lg border border-gray-300 bg-white py-6 px-4 sm:justify-between">
@@ -885,7 +889,7 @@ const AssetList: React.FC = () => {
                 <p className="text-2xl font-medium text-gray-900">
                   {(totalScoop / 10 ** 6).toLocaleString()}
                 </p>
-                <p className="text-sm text-gray-500">Total Scoop</p>
+                <p className="text-sm text-gray-500">Total Swap</p>
               </div>
             </article>
             <div>
@@ -932,7 +936,7 @@ const AssetList: React.FC = () => {
               disabled={isButtonDisabled}
               onClick={() => setOpenModal(true)}
             >
-              Scoop
+              Swap
             </button>
           </div>
           <div
@@ -1138,7 +1142,7 @@ const AssetList: React.FC = () => {
                         />
 
                         <span className="text-sm font-medium text-gray-700">
-                          Scoop Value
+                          Value
                         </span>
                       </label>
                     </li>

@@ -69,12 +69,12 @@ const About: React.FC = () => {
               }}
             >
               Airdrops and adverts clutter your wallet. This tool allows you to
-              quickly "Scoop" all your unwanted assets into $USDC via{" "}
+              quickly "swap" all your unwanted assets into $USDC via{" "}
               <a href="https://jup.ag/">
                 <u>Jupiter swaps.</u>
               </a>
               <br />
-              swaps. Token accounts for scooped assets are closed, returning the
+              swaps. Token accounts for swaped assets are closed, returning the
               rent to you as Solana. (Typically 0.0024 Solana per account
               closed). A1% fee is currently taken from all swaps, no fee is
               taken from account closures.
@@ -141,8 +141,8 @@ const About: React.FC = () => {
                   color: "#fff",
                 }}
               >
-                Scooper will check your wallet for assets that can be swapped
-                and accounts that can be closed and present them in a list below
+                You will check your wallet for assets that can be swapped and
+                accounts that can be closed and present them in a list below
               </Typography>
             </Box>
           </Box>
@@ -182,7 +182,7 @@ const About: React.FC = () => {
                   textWrap: "nowrap",
                 }}
               >
-                WAIT FOR ASSETS TO LOAD
+                SELECT ASSETS FOR Swapping
               </Typography>
               <Typography
                 sx={{
@@ -193,8 +193,8 @@ const About: React.FC = () => {
                   color: "#fff",
                 }}
               >
-                Scooper will check your wallet for assets that can be swapped
-                and accounts that can be closed and present them in a list below
+                Review the assets in the list and check any assets you would
+                like to swap, then press swap. Or use swap all
               </Typography>
             </Box>
           </Box>
@@ -234,7 +234,7 @@ const About: React.FC = () => {
                   textWrap: "nowrap",
                 }}
               >
-                WAIT FOR ASSETS TO LOAD
+                REVIEW SUMMARY
               </Typography>
               <Typography
                 sx={{
@@ -245,8 +245,8 @@ const About: React.FC = () => {
                   color: "#fff",
                 }}
               >
-                Scooper will check your wallet for assets that can be swapped
-                and accounts that can be closed and present them in a list below
+                Make sure only assets you want to swap are shown in the Summary.
+                Press confirm and then sign the transaction if you are satisfied
               </Typography>
             </Box>
           </Box>
@@ -286,7 +286,7 @@ const About: React.FC = () => {
                   textWrap: "nowrap",
                 }}
               >
-                WAIT FOR ASSETS TO LOAD
+                Swivul Swap
               </Typography>
               <Typography
                 sx={{
@@ -297,8 +297,8 @@ const About: React.FC = () => {
                   color: "#fff",
                 }}
               >
-                Scooper will check your wallet for assets that can be swapped
-                and accounts that can be closed and present them in a list below
+                You will now issue the transactions for each asset to be swaped
+                and let you know when the process is complete.
               </Typography>
             </Box>
           </Box>
